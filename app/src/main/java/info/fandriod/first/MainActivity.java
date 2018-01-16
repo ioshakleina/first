@@ -2,10 +2,11 @@ package info.fandriod.first;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+//import android.view.Menu;
+//import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -14,17 +15,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
    // protected void onCreate(Bundle savedInstanceState) {
    //     super.onCreate(savedInstanceState);
    //     setContentView(R.layout.activity_main);
-   EditText etNum1;
-    EditText etNum2;
 
-    Button btnAdd;
-    Button btnSub;
-    Button btnM;
-    Button btnDiv;
+    TextView LCD;
 
-    TextView tvResult;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
+    Button btnS, btnAdd, btnDiv, btnMul, btn0, btnEq, btnClnr ;
 
-    String oper = "";
+
 
 
     @Override
@@ -33,66 +30,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         // находим элементы
-        etNum1 = (EditText) findViewById(R.id.etNum1);
-        etNum2 = (EditText) findViewById(R.id.etNum2);
+       // etNum1 = (EditText) findViewById(R.id.etNum1);
+       // etNum2 = (EditText) findViewById(R.id.etNum2);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnSub = (Button) findViewById(R.id.btnSub);
-        btnM = (Button) findViewById(R.id.btnM);
+        btnS = (Button) findViewById(R.id.btnS);
+        btnMul = (Button) findViewById(R.id.btnMul);
         btnDiv = (Button) findViewById(R.id.btnDiv);
-
-        tvResult = (TextView) findViewById(R.id.tvResult);
+        btn9 = (Button) findViewById(R.id.btn9);
+        btn8 = (Button) findViewById(R.id.btn8);
+        btn7 = (Button) findViewById(R.id.btn7);
+        btn6 = (Button) findViewById(R.id.btn6);
+        btn5 = (Button) findViewById(R.id.btn5);
+        btn4 = (Button) findViewById(R.id.btn4);
+        btn3 = (Button) findViewById(R.id.btn3);
+        btn2 = (Button) findViewById(R.id.btn2);
+        btn1 = (Button) findViewById(R.id.btn1);
+        btn0 = (Button) findViewById(R.id.btn0);
+        btnClnr = (Button) findViewById(R.id.btnClnr);
+        btnEq = (Button) findViewById(R.id.btnEq);
+        LCD = (TextView) findViewById(R.id.LCD);
 
         // прописываем обработчик
         btnAdd.setOnClickListener(this);
-        btnSub.setOnClickListener(this);
-        btnM.setOnClickListener(this);
+        btnS.setOnClickListener(this);
+        btnMul.setOnClickListener(this);
         btnDiv.setOnClickListener(this);
+        btnEq.setOnClickListener(this);
+        btnClnr.setOnClickListener(this);
+        btn0.setOnClickListener(this);
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+        btn6.setOnClickListener(this);
+        btn7.setOnClickListener(this);
+        btn8.setOnClickListener(this);
+        btn9.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
 
-        float num1 = 0;
-        float num2 = 0;
-        float result = 0;
+        LCD.setText("кнопка " + v.getId());
 
-        // Проверяем поля на пустоту
-        if (TextUtils.isEmpty(etNum1.getText().toString())
-                || TextUtils.isEmpty(etNum2.getText().toString())) {
-            return;
-        }
 
-        // читаем EditText и заполняем переменные числами
-        num1 = Float.parseFloat(etNum1.getText().toString());
-        num2 = Float.parseFloat(etNum2.getText().toString());
 
-        // определяем нажатую кнопку и выполняем соответствующую операцию
-        // в oper пишем операцию, потом будем использовать в выводе
-        switch (v.getId()) {
-            case R.id.btnAdd:
-                oper = "+";
-                result = num1 + num2;
-                break;
-            case R.id.btnSub:
-                oper = "-";
-                result = num1 - num2;
-                break;
-            case R.id.btnM:
-                oper = "*";
-                result = num1 * num2;
-                break;
-            case R.id.btnDiv:
-                oper = "/";
-                result = num1 / num2;
-                break;
-            default:
-                break;
-        }
-
-        // формируем строку вывода
-        tvResult.setText(num1 + " " + oper + " " + num2 + " = " + result);
     }
 
     @Override
