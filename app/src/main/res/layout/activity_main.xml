@@ -3,8 +3,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:ignore="ExtraText">
 
 
@@ -15,7 +15,7 @@
     android:orientation="vertical"
    >
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginLeft="3pt"
@@ -24,9 +24,28 @@
         android:textSize="16pt"
         android:textStyle="bold"
         android:typeface="normal"
-        android:layout_weight="0.3"
+        android:layout_weight="0.2"
         android:layout_gravity="right|bottom"
         android:id="@+id/LCD"/>
+    <LinearLayout
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/resultField"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/operationField"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,22 +55,24 @@
         >
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_weight="3"
             android:text="Clear"
             android:textSize="14pt"
             android:id="@+id/btnC"
             android:background="#836FFF"
+            android:onClick="onOperClick"
             >
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:text="C"
             android:textSize="14pt"
             android:id="@+id/btnClnr"
-            android:background="#473C8B">
+            android:background="#473C8B"
+            android:onClick="onOperClick">
         </Button>
 
     </LinearLayout>
@@ -64,40 +85,44 @@
        >
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="7"
             android:textSize="14pt"
             android:id="@+id/btn7"
             android:background="#836FFF"
+            android:onClick="onNumClick"
             >
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="8"
             android:textSize="14pt"
             android:id="@+id/btn8"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="9"
             android:textSize="14pt"
             android:id="@+id/btn9"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="/"
             android:textSize="14pt"
             android:id="@+id/btnDiv"
-            android:background="#473C8B">
+            android:background="#473C8B"
+            android:onClick="onOperClick">
         </Button>
     </LinearLayout>
     <LinearLayout
@@ -108,39 +133,43 @@
        >
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="4"
             android:textSize="14pt"
             android:id="@+id/btn4"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="5"
             android:textSize="14pt"
             android:id="@+id/btn5"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="6"
             android:textSize="14pt"
             android:id="@+id/btn6"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="*"
             android:textSize="14pt"
             android:id="@+id/btnMul"
-            android:background="#473C8B">
+            android:background="#473C8B"
+            android:onClick="onOperClick">
         </Button>
     </LinearLayout>
     <LinearLayout
@@ -151,39 +180,43 @@
         >
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="1"
             android:textSize="14pt"
             android:id="@+id/btn1"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="2"
             android:textSize="14pt"
             android:id="@+id/btn2"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="3"
             android:textSize="14pt"
             android:id="@+id/btn3"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="-"
             android:textSize="14pt"
             android:id="@+id/btnS"
-            android:background="#473C8B">
+            android:background="#473C8B"
+            android:onClick="onOperClick">
         </Button>
     </LinearLayout>
     <LinearLayout
@@ -195,39 +228,43 @@
         >
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="0"
             android:textSize="14pt"
             android:id="@+id/btn0"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="."
             android:textSize="14pt"
             android:id="@+id/btnDot"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onNumClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="="
             android:textSize="14pt"
             android:id="@+id/btnEq"
-            android:background="#836FFF">
+            android:background="#836FFF"
+            android:onClick="onOperClick">
         </Button>
         <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:text="+"
             android:textSize="14pt"
             android:id="@+id/btnAdd"
-            android:background="#473C8B">
+            android:background="#473C8B"
+            android:onClick="onOperClick">
         </Button>
     </LinearLayout>
     </LinearLayout>
