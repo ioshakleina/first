@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView LCD;
 
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-    Button btnS, btnAdd, btnDiv, btnMul, btn0, btnEq, btnClnr ;
+    Button btnS, btnAdd, btnDiv, btnMul, btn0, btnEq, btnClnr, btnDot, btnC;
 
     int oper1, oper2, flagAction;
 
